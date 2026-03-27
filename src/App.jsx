@@ -5,10 +5,12 @@ import About from "./pages/About";
 
 export default function App() {
     return (
-        <HashRouter>
-            <Route path="/" element={<Home />} />
-            <Route path="/projets" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-        </HashRouter>
-    );
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projets" element={<Projects />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </HashRouter>
+  );
 }
