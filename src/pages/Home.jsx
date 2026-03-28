@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {
@@ -101,7 +102,7 @@ const FEATURED = [
         id: "honey-group",
         title: "Honey Group",
         status: "Concept / build",
-        desc: "Sitre vitrine pour du tourisme au Madagascar : design épuré, backend solide, et contenu facile à gérer.",
+        desc: "Site vitrine pour du tourisme au Madagascar : design épuré, backend solide, et contenu facile à gérer.",
         tags: ["React", "Tailwind", "Django", "API REST", "PostgreSQL"],
         previewLabel: "Aperçu — Concept",
     },
@@ -116,6 +117,24 @@ const FEATURED = [
 ];
 
 export default function Home() {
+    const location = useLocation();
+
+    useEffect(() => {
+        const scrollTo = location.state?.scrollTo;
+        if (!scrollTo) return;
+        const HEADER_OFFSET = 110;
+        const scrollToEl = () => {
+            const el = document.getElementById(scrollTo);
+            if (!el) return false;
+            window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET, behavior: "smooth" });
+            return true;
+        };
+        if (scrollToEl()) return;
+        let tries = 0;
+        const tick = () => { tries++; if (!scrollToEl() && tries < 20) requestAnimationFrame(tick); };
+        requestAnimationFrame(tick);
+    }, [location.state]);
+
     return (
         <div className="min-h-screen bg-zinc-950 text-zinc-100">
             {/* Layout */}

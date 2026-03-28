@@ -20,55 +20,31 @@ body {
     50% { opacity: 0.30; }
 }
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes floaty {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
-@keyframes shimmer {
-    0% { transform: translateX(-60%); opacity: 0; }
-    35% { opacity: 0.25; }
-    100% { transform: translateX(60%); opacity: 0; }
-}
-
-.animate-slow-rotate { animation: slow-rotate 40s linear infinite; }
-.animate-pulse-soft { animation: pulse-soft 6s ease-in-out infinite; }
-
-/* ================= Sin’dorei texture ================= */
-.sindorei-noise {
-    background-image: radial-gradient(rgba(239,68,68,0.08) 1px, transparent 1px);
-    background-size: 26px 26px;
-    background-position: 0 0;
-    mask-image: radial-gradient(circle at 30% 30%, black 10%, transparent 60%);
-    opacity: 0.35;
-}
-
-/* ============================
-   SIN'DOREI UTILITIES (no Tailwind config needed)
-   ============================ */
-
 @keyframes floaty {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
-}
-@keyframes runeGlow {
-    0%, 100% { opacity: .12; filter: blur(0px); }
-    50% { opacity: .22; filter: blur(1px); }
-}
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes shimmer {
     0% { transform: translateX(-60%) rotate(12deg); opacity: 0; }
     35% { opacity: .22; }
     100% { transform: translateX(60%) rotate(12deg); opacity: 0; }
 }
+@keyframes runeGlow {
+    0%, 100% { opacity: .12; filter: blur(0px); }
+    50% { opacity: .22; filter: blur(1px); }
+}
 
-.animate-floaty { animation: floaty 6s ease-in-out infinite; }
-.animate-fadeUp { animation: fadeUp .55s ease-out both; }
+.animate-slow-rotate { animation: slow-rotate 40s linear infinite; }
+.animate-pulse-soft  { animation: pulse-soft 6s ease-in-out infinite; }
+.animate-floaty      { animation: floaty 6s ease-in-out infinite; }
+.animate-fadeUp      { animation: fadeUp .55s ease-out both; }
+
+/* ============================
+   SIN'DOREI UTILITIES
+   ============================ */
 
 .sindorei-noise {
     background-image: radial-gradient(rgba(239,68,68,0.07) 1px, transparent 1px);
@@ -115,7 +91,7 @@ body {
     border-radius: 9999px;
     pointer-events: none;
 }
-.shimmer-sweep > span{
+.shimmer-sweep > span {
     position: absolute;
     left: -60%;
     top: 0;

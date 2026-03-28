@@ -20,10 +20,10 @@ export default function Footer() {
                         </p>
 
                         <a
-                            href="mailto:ton.email@exemple.com"
+                            href="mailto:3d.nathaniel1@gmail.com"
                             className="mt-6 inline-block text-sm font-semibold text-amber-300 hover:text-amber-200 transition"
                         >
-                            ton.email@exemple.com
+                            3d.nathaniel1@gmail.com
                         </a>
                     </div>
 
@@ -54,7 +54,7 @@ export default function Footer() {
 
                         <div className="mt-5 flex flex-col gap-3 text-sm text-zinc-300">
                             <a
-                                href="3d.nathaniel1@gmail.com"
+                                href="mailto:3d.nathaniel1@gmail.com"
                                 className="hover:text-amber-300 transition"
                             >
                                 Email

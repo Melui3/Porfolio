@@ -307,7 +307,7 @@ export default function Projects() {
                             <div className="mt-6 h-[2px] w-24 mx-auto bg-gradient-to-r from-red-600 via-amber-300 to-transparent" />
 
                             <p className="mt-6 text-zinc-400 text-lg">
-                                Tous mes projets dans une esthétique sin’dorei : clair, net, et bien présenté.
+                                Chaque projet, présenté clairement : contexte, stack, et livrables.
                             </p>
 
                             {/* Filters */}
@@ -450,7 +450,7 @@ export default function Projects() {
 
                             <div className="mt-8 flex flex-wrap justify-center gap-4">
                                 <a
-                                    href="mailto:ton.email@exemple.com"
+                                    href="mailto:3d.nathaniel1@gmail.com"
                                     className="h-12 px-6 inline-flex items-center justify-center rounded-[14px] bg-red-500 text-zinc-100 font-semibold transition hover:bg-red-600 hover:shadow-[0_0_26px_rgba(239,68,68,0.25)]"
                                 >
                                     Me contacter

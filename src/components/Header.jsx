@@ -1,8 +1,20 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleContact = () => {
+        setOpen(false);
+        if (location.pathname === "/") {
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+        } else {
+            navigate("/", { state: { scrollTo: "contact" } });
+        }
+    };
 
     return (
         <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
@@ -22,7 +34,6 @@ export default function Header() {
                     <Link to="/" className="transition hover:text-amber-300">
                         Accueil
                     </Link>
-
                     <Link to="/projets" className="transition hover:text-amber-300">
                         Projets
                     </Link>
@@ -34,9 +45,7 @@ export default function Header() {
                 {/* CTA → scroll contact */}
                 <div className="hidden md:block">
                     <button
-                        onClick={() =>
-                            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-                        }
+                        onClick={handleContact}
                         className="h-11 rounded-[14px] border border-amber-300/35 px-5 text-sm font-semibold text-amber-300 transition hover:border-amber-300 hover:bg-amber-300/10"
                     >
                         Me contacter
@@ -47,8 +56,9 @@ export default function Header() {
                 <button
                     className="md:hidden text-zinc-300"
                     onClick={() => setOpen(!open)}
+                    aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
                 >
-                    ☰
+                    {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </button>
             </div>
 
@@ -56,13 +66,11 @@ export default function Header() {
             {open && (
                 <div className="md:hidden border-t border-zinc-800 bg-zinc-950">
                     <div className="flex flex-col gap-6 px-6 py-8 text-zinc-300">
-                        <Link to="/">Accueil</Link>
-                        <Link to="/projets">Projets</Link>
-                        <Link to="/about">À propos</Link>
+                        <Link to="/" onClick={() => setOpen(false)}>Accueil</Link>
+                        <Link to="/projets" onClick={() => setOpen(false)}>Projets</Link>
+                        <Link to="/about" onClick={() => setOpen(false)}>À propos</Link>
                         <button
-                            onClick={() =>
-                                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-                            }
+                            onClick={handleContact}
                             className="mt-4 h-11 rounded-[14px] bg-red-500 text-sm font-semibold text-zinc-100"
                         >
                             Me contacter
